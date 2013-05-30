@@ -27,6 +27,7 @@ module.exports = (grunt) ->
           "dist/public_holidays.pack.min.js": "dist/public_holidays.pack.js"
           "dist/public_holidays.core.min.js": "dist/public_holidays.core.js"
           "dist/public_holidays.pl.min.js": "dist/public_holidays.pl.js"
+          "dist/public_holidays.at.min.js": "dist/public_holidays.at.js"
           "dist/public_holidays.min.js": "dist/public_holidays.js"
 
     grunt.loadNpmTasks "grunt-contrib-coffee"
