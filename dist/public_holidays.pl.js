@@ -6,10 +6,7 @@ PublicHolidays.registerFactory("pl", {
       year: year
     });
     return [
-      new PublicHolidays.Day(context.set({
-        day: 1,
-        month: 0
-      }), "new_year"), new PublicHolidays.Day(context.set({
+      PublicHolidays.newYear(year), new PublicHolidays.Day(context.set({
         day: 6,
         month: 0
       }), "three_kings"), PublicHolidays.easter(year), new PublicHolidays.Day(PublicHolidays.easter(year).date.add({

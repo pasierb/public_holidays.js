@@ -19,6 +19,13 @@ PublicHolidays = {
     }
     return this.options.factory.holidays(year);
   },
+  newYear: function(year) {
+    return new PublicHolidays.Day(Date.today().set({
+      month: 0,
+      day: 1,
+      year: year
+    }), "new_year");
+  },
   easter: function(year) {
     var C, D, I, J, K, L, M, N, Y, date;
 

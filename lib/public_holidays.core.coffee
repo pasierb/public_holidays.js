@@ -15,6 +15,9 @@ PublicHolidays =
     year = Date.today().getFullYear() unless year
     @options.factory.holidays(year)
 
+  newYear: (year) ->
+    new PublicHolidays.Day Date.today().set({ month: 0, day: 1, year: year }), "new_year"
+
   # thanks to http://coderzone.org/library/Get-Easter-Date-for-any-year-in-Javascript_1059.htm
   easter: (year) ->
     Y = year

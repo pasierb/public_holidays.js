@@ -1,3 +1,48 @@
+PublicHolidays.registerFactory('at', {
+  holidays: function(year) {
+    var context;
+
+    context = Date.today().set({
+      year: year
+    });
+    return [
+      PublicHolidays.newYear(year), new PublicHolidays.Day(context.set({
+        day: 6,
+        month: 0
+      }), "three_kings"), new PublicHolidays.Day(PublicHolidays.easter(year).date.add({
+        days: 1
+      }), "easter_monday"), new PublicHolidays.Day(context.set({
+        month: 4,
+        day: 1
+      }), "labour_day"), new PublicHolidays.Day(PublicHolidays.easter(year).date.add({
+        days: 39
+      }), "feast_of_the_ascension"), new PublicHolidays.Day(PublicHolidays.easter(year).date.add({
+        days: 48
+      }), "pentecost"), new PublicHolidays.Day(PublicHolidays.easter(year).date.add({
+        days: 60
+      }), "corpus_christi"), new PublicHolidays.Day(context.set({
+        month: 7,
+        day: 15
+      }), "assumption_of_mary"), new PublicHolidays.Day(context.set({
+        month: 9,
+        day: 26
+      }), "austrian_national_day"), new PublicHolidays.Day(context.set({
+        month: 10,
+        day: 1
+      }), "all_saints"), new PublicHolidays.Day(context.set({
+        month: 11,
+        day: 8
+      }), "immaculate_conception"), new PublicHolidays.Day(context.set({
+        month: 11,
+        day: 25
+      }), "christmas"), new PublicHolidays.Day(context.set({
+        month: 11,
+        day: 26
+      }), "st_stephen")
+    ];
+  }
+});
+
 var PublicHolidays;
 
 PublicHolidays = {
@@ -18,6 +63,13 @@ PublicHolidays = {
       year = Date.today().getFullYear();
     }
     return this.options.factory.holidays(year);
+  },
+  newYear: function(year) {
+    return new PublicHolidays.Day(Date.today().set({
+      month: 0,
+      day: 1,
+      year: year
+    }), "new_year");
   },
   easter: function(year) {
     var C, D, I, J, K, L, M, N, Y, date;
@@ -55,10 +107,7 @@ PublicHolidays.registerFactory("pl", {
       year: year
     });
     return [
-      new PublicHolidays.Day(context.set({
-        day: 1,
-        month: 0
-      }), "new_year"), new PublicHolidays.Day(context.set({
+      PublicHolidays.newYear(year), new PublicHolidays.Day(context.set({
         day: 6,
         month: 0
       }), "three_kings"), PublicHolidays.easter(year), new PublicHolidays.Day(PublicHolidays.easter(year).date.add({

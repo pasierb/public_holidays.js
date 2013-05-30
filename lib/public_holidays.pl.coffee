@@ -3,7 +3,7 @@ PublicHolidays.registerFactory "pl",
     context = Date.today().set
       year: year
     [
-      new PublicHolidays.Day context.set({ day: 1, month: 0 }), "new_year"
+      PublicHolidays.newYear(year)
       new PublicHolidays.Day context.set({ day: 6, month: 0 }), "three_kings"
       PublicHolidays.easter(year)
       new PublicHolidays.Day PublicHolidays.easter(year).date.add({ days: 1 }), "easter_monday"
