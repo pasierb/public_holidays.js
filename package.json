@@ -1,0 +1,10 @@
+{
+  "name": "public_holidays",
+  "varsion": "0.1.0",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-coffee": "latest",
+    "grunt-contrib-jasmine": "~0.4.2",
+    "grunt-contrib-concat": "~0.3.0"
+  }
+}
