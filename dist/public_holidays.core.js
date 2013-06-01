@@ -3,7 +3,22 @@ var PublicHolidays;
 PublicHolidays = {
   options: {
     factory: null,
-    factories: {}
+    factories: {},
+    holidayNames: {
+      new_year: "New Year's Day",
+      three_kings: "Epiphany",
+      easter: "Easter Sunday",
+      easter_monday: "Easter Monday",
+      first_of_may: "Labour Day",
+      third_of_may: "Constitution Day",
+      maria: "Assumption of the Blessed Virgin Mary",
+      pentecost: "Pentecost Sunday",
+      corpus_christi: "Corpus Christi",
+      all_saints: "All Saints' Day",
+      independence_day: "Independence Day",
+      christmas: "Christmas Day",
+      boxing_day: "Boxing Day"
+    }
   },
   registerFactory: function(code, factory) {
     factory.holidays();
@@ -20,6 +35,9 @@ PublicHolidays = {
     return this.options.factory.holidays(year);
   },
   newYear: function(year) {
+    if (!year) {
+      year = Date.today().getFullYear();
+    }
     return new PublicHolidays.Day(Date.today().set({
       month: 0,
       day: 1,
@@ -29,6 +47,9 @@ PublicHolidays = {
   easter: function(year) {
     var C, D, I, J, K, L, M, N, Y, date;
 
+    if (!year) {
+      year = Date.today().getFullYear();
+    }
     Y = year;
     C = Math.floor(Y / 100);
     N = Y - 19 * Math.floor(Y / 19);
@@ -51,5 +72,10 @@ PublicHolidays = {
 
 PublicHolidays.Day = function(date, code) {
   this.date = date;
-  return this.code = code;
+  this.code = code;
+  this.getName = function() {
+    return this.name = PublicHolidays.options.holidayNames[code];
+  };
+  this.getName();
+  return this;
 };

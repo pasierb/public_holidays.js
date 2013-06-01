@@ -69,5 +69,12 @@ describe('PublicHolidays core', function () {
     });
   });
 
+  describe("PublicHolidays.Day", function () {
+    it("should get name of holiday", function () {
+      var day = PublicHolidays.newYear();
+      expect(day.name).toEqual("New Year's Day");
+    });
+  });
+
 });
 

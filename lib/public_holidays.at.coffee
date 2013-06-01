@@ -10,7 +10,7 @@ PublicHolidays.registerFactory 'at',
       new PublicHolidays.Day PublicHolidays.easter(year).date.add({ days: 39 }), "feast_of_the_ascension"
       new PublicHolidays.Day PublicHolidays.easter(year).date.add({ days: 48 }), "pentecost"
       new PublicHolidays.Day PublicHolidays.easter(year).date.add({ days: 60 }), "corpus_christi"
-      new PublicHolidays.Day context.set({ month: 7, day: 15 }), "assumption_of_mary"
+      new PublicHolidays.Day context.set({ month: 7, day: 15 }), "maria"
       new PublicHolidays.Day context.set({ month: 9, day: 26 }), "austrian_national_day"
       new PublicHolidays.Day context.set({ month: 10, day: 1 }), "all_saints"
       new PublicHolidays.Day context.set({ month: 11, day: 8 }), "immaculate_conception"
