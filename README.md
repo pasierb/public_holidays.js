@@ -27,3 +27,8 @@ Contribute
 
 Adding factories is dead simple, take a look at others and write your own.
 Use shipped in [date.js](https://code.google.com/p/datejs/) for easy date manipulation/calculation.
+
+TODO
+----
+
+Add new factories, translations.
