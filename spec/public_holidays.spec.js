@@ -3,7 +3,6 @@
 /*globals PublicHolidays:false*/
 
 describe('PublicHolidays core', function () {
-
   describe("easter", function () {
     describe("2012", function () {
       var year = 2012
@@ -11,6 +10,7 @@ describe('PublicHolidays core', function () {
 
       it("should return correct month", function () {
         var month = 3
+        console.log(easter.date);
         expect(easter.date.getMonth()).toEqual(month);
       });
 
@@ -65,6 +65,13 @@ describe('PublicHolidays core', function () {
           PublicHolidays.registerFactory("pl",{});
         }
         expect(register).toThrow();
+      });
+    });
+
+    describe("all", function () {
+      it("should get holidays for current year", function () {
+        var holiday = PublicHolidays.all()[0];
+        expect(holiday.date.getFullYear()).toEqual(Date.today().getFullYear());
       });
     });
   });

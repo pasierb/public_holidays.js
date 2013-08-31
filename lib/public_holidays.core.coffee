@@ -33,26 +33,24 @@ PublicHolidays =
     year = Date.today().getFullYear() unless year
     new PublicHolidays.Day Date.today().set({ month: 0, day: 1, year: year }), "new_year"
 
-  # thanks to http://coderzone.org/library/Get-Easter-Date-for-any-year-in-Javascript_1059.htm
+  # thanks to http://techneilogy.blogspot.com/2012/02/couple-of-years-ago-i-posted-source.html
   easter: (year) ->
-    year = Date.today().getFullYear() unless year
-    Y = year
-    C = Math.floor(Y/100)
-    N = Y - 19*Math.floor(Y/19)
-    K = Math.floor((C - 17)/25)
-    I = C - Math.floor(C/4) - Math.floor((C - K)/3) + 19*N + 15
-    I = I - 30*Math.floor((I/30))
-    I = I - Math.floor(I/28)*(1 - Math.floor(I/28)*Math.floor(29/(I + 1))*Math.floor((21 - N)/11))
-    J = Y + Math.floor(Y/4) + I + 2 - C + Math.floor(C/4)
-    J = J - 7*Math.floor(J/7)
-    L = I - J
-    M = 3 + Math.floor((L + 40)/44)
-    D = L + 28 - 31*Math.floor(M/4)
-
-    date = new Date()
-    date.setYear(Y)
-    date.setMonth(M-1)
-    date.setDate(D)
+    a = year % 19
+    b = Math.floor(year / 100)
+    c = year % 100
+    d = Math.floor(b / 4) 
+    e = b % 4
+    f = Math.floor((b + 8) / 25)
+    g = Math.floor((b - f + 1) / 3) 
+    h = (19 * a + b - d - g + 15) % 30
+    i = Math.floor(c / 4)
+    k = c % 4
+    l = (32 + 2 * e + 2 * i - h - k) % 7
+    m = Math.floor((a + 11 * h + 22 * l) / 451)
+    n0 = (h + l + 7 * m + 114)
+    n = Math.floor(n0 / 31) - 1
+    p = n0 % 31 + 1
+    date = new Date(year,n,p)
     new PublicHolidays.Day(date, 'easter')
 
 PublicHolidays.Day = (date, code) ->

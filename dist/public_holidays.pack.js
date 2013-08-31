@@ -150,27 +150,24 @@ PublicHolidays = {
     }), "new_year");
   },
   easter: function(year) {
-    var C, D, I, J, K, L, M, N, Y, date;
+    var a, b, c, d, date, e, f, g, h, i, k, l, m, n, n0, p;
 
-    if (!year) {
-      year = Date.today().getFullYear();
-    }
-    Y = year;
-    C = Math.floor(Y / 100);
-    N = Y - 19 * Math.floor(Y / 19);
-    K = Math.floor((C - 17) / 25);
-    I = C - Math.floor(C / 4) - Math.floor((C - K) / 3) + 19 * N + 15;
-    I = I - 30 * Math.floor(I / 30);
-    I = I - Math.floor(I / 28) * (1 - Math.floor(I / 28) * Math.floor(29 / (I + 1)) * Math.floor((21 - N) / 11));
-    J = Y + Math.floor(Y / 4) + I + 2 - C + Math.floor(C / 4);
-    J = J - 7 * Math.floor(J / 7);
-    L = I - J;
-    M = 3 + Math.floor((L + 40) / 44);
-    D = L + 28 - 31 * Math.floor(M / 4);
-    date = new Date();
-    date.setYear(Y);
-    date.setMonth(M - 1);
-    date.setDate(D);
+    a = year % 19;
+    b = Math.floor(year / 100);
+    c = year % 100;
+    d = Math.floor(b / 4);
+    e = b % 4;
+    f = Math.floor((b + 8) / 25);
+    g = Math.floor((b - f + 1) / 3);
+    h = (19 * a + b - d - g + 15) % 30;
+    i = Math.floor(c / 4);
+    k = c % 4;
+    l = (32 + 2 * e + 2 * i - h - k) % 7;
+    m = Math.floor((a + 11 * h + 22 * l) / 451);
+    n0 = h + l + 7 * m + 114;
+    n = Math.floor(n0 / 31) - 1;
+    p = n0 % 31 + 1;
+    date = new Date(year, n, p);
     return new PublicHolidays.Day(date, 'easter');
   }
 };
@@ -253,7 +250,7 @@ PublicHolidays.registerFactory('at', {
       }), "corpus_christi"), new PublicHolidays.Day(context.set({
         month: 7,
         day: 15
-      }), "assumption_of_mary"), new PublicHolidays.Day(context.set({
+      }), "maria"), new PublicHolidays.Day(context.set({
         month: 9,
         day: 26
       }), "austrian_national_day"), new PublicHolidays.Day(context.set({

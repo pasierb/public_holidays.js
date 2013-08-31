@@ -23,7 +23,7 @@ PublicHolidays.registerFactory('at', {
       }), "corpus_christi"), new PublicHolidays.Day(context.set({
         month: 7,
         day: 15
-      }), "assumption_of_mary"), new PublicHolidays.Day(context.set({
+      }), "maria"), new PublicHolidays.Day(context.set({
         month: 9,
         day: 26
       }), "austrian_national_day"), new PublicHolidays.Day(context.set({
